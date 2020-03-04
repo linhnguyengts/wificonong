@@ -322,35 +322,55 @@
         $('.navbar-collapse').collapse('hide');
       });
 
-    // this is the id of the form
-    $("#contactForm").submit(function(e) {
-      e.preventDefault();
-      $('#send-message').attr('disabled', 'disabled');
-      $('#send-message .spinner-border').removeClass('d-none');
-      var form = $(this);
-      var url = form.attr('action');
-      $('.alert', form).addClass('d-none');
+      // this is the id of the form
+      $("#contactForm").submit(function(e) {
+        e.preventDefault();
+        $('#send-message').attr('disabled', 'disabled');
+        $('#send-message .spinner-border').removeClass('d-none');
+        var form = $(this);
+        var url = form.attr('action');
+        $('.alert', form).addClass('d-none');
 
-      $.ajax({
-        type: "POST",
-        url: url,
-        data: form.serialize(), 
-        success: function(data)
-        {
-          if(data.result == 'good'){
-            $('.alert-success', form).text('Cám ơn bạn đã liên hệ. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!');
-            $('.alert-success', form).removeClass('d-none');
-          } else {
-            $('.alert-danger', form).text(data.message);
-            $('.alert-danger', form).removeClass('d-none');
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: form.serialize(), 
+          success: function(data)
+          {
+            if(data.result == 'good'){
+              $('.alert-success', form).text('Cám ơn bạn đã liên hệ. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!');
+              $('.alert-success', form).removeClass('d-none');
+            } else {
+              $('.alert-danger', form).text(data.message);
+              $('.alert-danger', form).removeClass('d-none');
+            }
+            $('#send-message').removeAttr('disabled');
+            $('#send-message .spinner-border').hide();
           }
-          $('#send-message').removeAttr('disabled');
-          $('#send-message .spinner-border').hide();
-        }
+        });
+
+
       });
 
-
-    });
+      // input number
+      $.fn.inputFilter = function(inputFilter) {
+        return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+          if (inputFilter(this.value)) {
+            this.oldValue = this.value;
+            this.oldSelectionStart = this.selectionStart;
+            this.oldSelectionEnd = this.selectionEnd;
+          } else if (this.hasOwnProperty("oldValue")) {
+            this.value = this.oldValue;
+            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+          } else {
+            this.value = "";
+          }
+        });
+      };   
+      
+      $("#phone").inputFilter(function(value) {
+        return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+      });      
 
     })(jQuery); // End of use strict    
   </script>
