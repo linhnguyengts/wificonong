@@ -58,7 +58,8 @@
 	color: #000;
 	text-align: left;
 	bottom: 150px;
-	left: 10%;
+	left: 0;
+    right: 0;
 }
 
 .carousel-caption h1 {
@@ -240,15 +241,6 @@ footer .footer-item {
 	#giai-phap-wifi .section-heading, #contact .section-heading {
 		width: 100%;
 	}
-	/**
-	.header-icons .section-heading h2 {
-		padding-left: 85px;
-	}
-	
-	#wifi-conong .section-heading h2 {
-		padding-left: 55px;
-	}
-	**/
 	
 	footer img {
 		position: relative;

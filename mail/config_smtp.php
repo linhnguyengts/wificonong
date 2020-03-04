@@ -3,7 +3,15 @@
 $cfg_server   = 'smtp.gmail.com';
 $cfg_port     =  587;
 $cfg_secure   = 'tls';
-$cfg_username = 'linhnguyen220918@gmail.com'; // mail gửi
-$cfg_password = 'mrgjyewequyyyiky'; // mật khẩu ứng dụng mail gửi https://support.google.com/accounts/answer/185833?hl=vi
-$cfg_to       = 'linhnguyengts@gmail.com'; // mail nhận 
-$cfg_subject  = 'Yêu cầu tư vấn Wifi Con Ong'; // Tiêu đề email
+
+/** mail gửi **/
+$cfg_username = 'example@gmail.com'; 
+
+/** mật khẩu ứng dụng mail gửi https://support.google.com/accounts/answer/185833?hl=vi **/
+$cfg_password = ''; 
+
+/** mail nhận **/
+$cfg_to       = 'test@gmail.com'; 
+
+/** Tiêu đề email **/
+$cfg_subject  = 'Yêu cầu tư vấn Wifi Con Ong'; 
