@@ -222,7 +222,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="first_name">Danh xưng</label>
-					<select class="form-control" id="first_name" name="first_name" >
+					<select class="form-control" id="first_name"  name="first_name" >
 					  <option value="1">Anh</option>
 					  <option value="2">Chị</option>
 					</select>				  
@@ -231,7 +231,8 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <label for="last_name">Tên thường gọi</label>
-                  <input class="form-control" type="text" id="last_name" name="last_name"  required="required">
+                  <input class="form-control" type="text" id="last_name" name="last_name" oninput="setCustomValidity('')"
+					oninvalid="this.setCustomValidity('Vui lòng nhập tên')" required="required">
                 </div>
               </div>              
             </div>
@@ -239,7 +240,8 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input class="form-control" type="text" id="email" name="email"  required="required">
+                  <input class="form-control" type="email" id="email" name="email" oninput="setCustomValidity('')"
+					oninvalid="this.setCustomValidity('Vui lòng nhập email')"  required="required">
                 </div>
               </div>              
             </div>
@@ -247,7 +249,8 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input class="form-control" type="text" id="phone" name="phone"  required="required">
+                  <input class="form-control" type="text" id="phone" name="phone" oninput="setCustomValidity('')"
+					oninvalid="this.setCustomValidity('Vui lòng nhập số điện thoại')"  required="required">
                 </div>
               </div>              
             </div>                        
